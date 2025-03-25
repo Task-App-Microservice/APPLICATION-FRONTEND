@@ -8,8 +8,8 @@ import SubMenuProject from './sub-menu-project'
 
 const Sidebar = () => {
   return (
-    <aside className='w-full max-w-[240px] border'>
-      <div className="flex flex-col justify-between h-screen">
+    <aside className='w-full max-w-[240px] border-r'>
+      <div className="flex flex-col justify-between h-[99vh]">
         <div className="p-4 space-y-6">
           <LogoApp />
           <nav className='pl-2 mt-4 space-y-4'>

@@ -1,4 +1,4 @@
-import AppLoyout from "@/components/layout/index.loyout";
+import AppLoyout from "@/components/layout/app/index.loyout";
 
 export default function AppLayout({
   children,

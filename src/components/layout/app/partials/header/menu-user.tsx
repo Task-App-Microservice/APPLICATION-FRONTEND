@@ -6,7 +6,6 @@ import { FaRegUserCircle } from 'react-icons/fa'
 import { HiMiniLanguage } from 'react-icons/hi2'
 import { IoIosLogOut } from 'react-icons/io'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
-
 const MenuUser = () => {
     return (
         <Popover>
