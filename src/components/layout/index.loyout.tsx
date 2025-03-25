@@ -10,9 +10,9 @@ const AppLoyout = ({
   return (
     <div className="flex w-full h-screen">
       <Sidebar />
-      <div className="flex flex-col w-full h-full">
+      <div className="relative flex flex-col w-full h-full">
         <Header />
-        <main className="p-8">{children}</main>
+        <main className="p-8 pt-24 h-[1000vh]">{children}</main>
       </div>
     </div>
   );
