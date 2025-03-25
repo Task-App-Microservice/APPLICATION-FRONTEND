@@ -1,4 +1,4 @@
-import ProjectLoyout from '@/components/layout/project/index.loyout'
+import ProjectLoyout from '@/components/features/layout/project/index.loyout'
 import React from 'react'
 
 const ProjectRootLayout = ({children}:{children:React.ReactNode}) => {
