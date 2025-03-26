@@ -27,6 +27,11 @@ export function useSignUp() {
         setIsPending(true)
         await axios.postForm("auth/register", {
             ...body
+        },{
+            headers:{
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*", 
+            }
         }).catch(async (error) => {
             handleErrors(error);
         }).then((response) => {
