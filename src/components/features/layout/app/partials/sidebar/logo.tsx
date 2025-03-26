@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
 import { GrTasks } from 'react-icons/gr';
-import { SiGoogletasks } from "react-icons/si";
 const LogoApp = () => {
     return (
         <Link href={"/"}>

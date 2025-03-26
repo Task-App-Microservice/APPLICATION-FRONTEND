@@ -1,6 +1,5 @@
 import React from 'react'
 import { CiCalendar } from 'react-icons/ci'
-import { FaPlus } from 'react-icons/fa'
 import { FiPlus, FiSearch } from 'react-icons/fi'
 import { IoFilterOutline } from 'react-icons/io5'
 

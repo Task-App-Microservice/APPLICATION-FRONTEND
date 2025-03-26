@@ -6,7 +6,7 @@ const Page = () => {
     <div className='pt-8'>
       <div className="grid grid-cols-4 gap-4">
         {Array.from({length: 10}).map((i,index)=>(
-            <TaskCard />
+            <TaskCard key={index}/>
         ))}
       </div>
     </div>

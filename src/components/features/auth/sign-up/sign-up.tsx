@@ -1,17 +1,23 @@
 "use client"
 import React from 'react'
-import { FaNoteSticky } from "react-icons/fa6";
 import Link from 'next/link';
 import { FcGoogle } from "react-icons/fc";
 import { Button } from '@/components/global/ui/button';
 import { Separator } from '@/components/global/ui/separator';
 import { Input } from '@/components/global/ui/input';
 import LogoApp from '../../layout/app/partials/sidebar/logo';
-const SignInForm = () => {
+import { useSignUp } from '@/hooks/auth/sign-up';
+import Loader from '@/components/global/custom/loader';
 
+const SignUpForm = () => {
+    const {
+        form,
+        handleForm,
+        isPending,
+    } = useSignUp(); 
     return (
         <div className='max-w-[350px] w-full '>
-            <form className='space-y-4'>
+            <form className='space-y-4' onSubmit={form.handleSubmit(handleForm)} >
                 <div className="flex items-center justify-center w-full flex-col gap-1">
                     <LogoApp />
                     <p className="text-slate-600 font-medium text-center text-sm">
@@ -19,15 +25,52 @@ const SignInForm = () => {
                     </p>
                 </div>
                 <div className="space-y-1">
-                    <Input placeholder='ebraimsambo@gmail.com' />
+                    <Input placeholder='Ebraim Sambo' 
+                         disabled={isPending}
+                          {...form.register("name")}
+                    />
+                    {form.formState.errors.name && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.name.message}
+                        </p>
+                    )}
                 </div>
                 <div className="space-y-1">
-                    <Input type='password' placeholder='sua senha' />
-
+                    <Input placeholder='ebraimsambo@gmail.com'
+                    disabled={isPending} {...form.register("email")}
+                    />
+                    {form.formState.errors.email && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.email.message}
+                        </p>
+                    )}
+                </div>
+                <div className="space-y-1">
+                    <Input type='password' 
+                     disabled={isPending} {...form.register("password")}
+                    placeholder='sua senha' />
+                    {form.formState.errors.password && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.password.message}
+                        </p>
+                    )}
+                </div>
+                <div className="space-y-1">
+                    <Input type='password' 
+                     disabled={isPending} {...form.register("confirmPassword")}
+                    placeholder='repetir a sua senha' />
+                    {form.formState.errors.confirmPassword && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.confirmPassword.message}
+                        </p>
+                    )}
                 </div>
                 <div className="space-y-1">
                     <Button size={"lg"} type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
-                        Entrar
+                    {!isPending ? "Criar Conta" :
+                            <Loader atributes={{
+                                color: "#fff"
+                            }} />}
                     </Button>
 
                 </div>
@@ -49,4 +92,4 @@ const SignInForm = () => {
     )
 }
 
-export default SignInForm
+export default  SignUpForm
