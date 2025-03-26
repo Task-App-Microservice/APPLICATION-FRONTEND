@@ -7,6 +7,7 @@ const createAxiosInstance = (): AxiosInstance => {
         timeout: 50000,
         headers: { 
           'Content-Type': 'application/json',
+           "X-API-KEY": process.env.NEXT_PUBLIC_KEY_API
         } 
     });
 

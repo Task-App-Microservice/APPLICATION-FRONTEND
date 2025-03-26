@@ -6,7 +6,7 @@ import { Button } from '@/components/global/ui/button';
 import { Separator } from '@/components/global/ui/separator';
 import { Input } from '@/components/global/ui/input';
 import LogoApp from '../../layout/app/partials/sidebar/logo';
-const SignUpForm = () => {
+const SignInForm = () => {
 
     return (
         <div className='max-w-[350px] w-full '>
@@ -40,12 +40,12 @@ const SignUpForm = () => {
                 </button>
             </div>
             <div className="text-center mt-2">
-                <Link href={'/auth/register'} className='text-center text-xs text-slate-600 mt-2 hover:text-primary' >
-                    Tem uma conta?
+                <Link href={'/sign-up'} className='text-center text-xs text-slate-600 mt-2 hover:text-primary' >
+                    Não tenho uma conta?
                 </Link>
             </div>
         </div>
     )
 }
 
-export default SignUpForm
+export default SignInForm

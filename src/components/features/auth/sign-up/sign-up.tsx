@@ -8,13 +8,43 @@ import { Input } from '@/components/global/ui/input';
 import LogoApp from '../../layout/app/partials/sidebar/logo';
 import { useSignUp } from '@/hooks/auth/sign-up';
 import Loader from '@/components/global/custom/loader';
-
+import { toast } from 'sonner';
+import { IMessageProps } from '@/core/message/message';
+import { MdErrorOutline } from "react-icons/md";
 const SignUpForm = () => {
     const {
         form,
         handleForm,
         isPending,
-    } = useSignUp(); 
+        message
+    } = useSignUp();
+    const handleMessagePopOut = ({ message, type }: IMessageProps) => {
+        if (type === "error") {
+            return toast(message, {
+                style: {
+                    background: "#FFC9C9",
+                    color: "#E7000B"
+                },
+                duration: 80000,
+                icon: <MdErrorOutline className='h-5 w-5' />
+            });
+        }
+
+            return toast(message, {
+                style: {
+                    background: "#B9F8CF",
+                    color: "#00A63E"
+                },
+                duration: 80000
+            });
+
+    };
+
+    React.useEffect(() => {
+        if (message) {
+            handleMessagePopOut({ message: message?.message, type: message?.type });
+        }
+    }, [message]);
     return (
         <div className='max-w-[350px] w-full '>
             <form className='space-y-4' onSubmit={form.handleSubmit(handleForm)} >
@@ -25,9 +55,9 @@ const SignUpForm = () => {
                     </p>
                 </div>
                 <div className="space-y-1">
-                    <Input placeholder='Ebraim Sambo' 
-                         disabled={isPending}
-                          {...form.register("name")}
+                    <Input placeholder='Ebraim Sambo'
+                        disabled={isPending}
+                        {...form.register("name")}
                     />
                     {form.formState.errors.name && (
                         <p className="text-red-500 pl-2 text-[10px] mt-1">
@@ -37,7 +67,7 @@ const SignUpForm = () => {
                 </div>
                 <div className="space-y-1">
                     <Input placeholder='ebraimsambo@gmail.com'
-                    disabled={isPending} {...form.register("email")}
+                        disabled={isPending} {...form.register("email")}
                     />
                     {form.formState.errors.email && (
                         <p className="text-red-500 pl-2 text-[10px] mt-1">
@@ -46,9 +76,9 @@ const SignUpForm = () => {
                     )}
                 </div>
                 <div className="space-y-1">
-                    <Input type='password' 
-                     disabled={isPending} {...form.register("password")}
-                    placeholder='sua senha' />
+                    <Input type='password'
+                        disabled={isPending} {...form.register("password")}
+                        placeholder='sua senha' />
                     {form.formState.errors.password && (
                         <p className="text-red-500 pl-2 text-[10px] mt-1">
                             {form.formState.errors.password.message}
@@ -56,9 +86,9 @@ const SignUpForm = () => {
                     )}
                 </div>
                 <div className="space-y-1">
-                    <Input type='password' 
-                     disabled={isPending} {...form.register("confirmPassword")}
-                    placeholder='repetir a sua senha' />
+                    <Input type='password'
+                        disabled={isPending} {...form.register("confirmPassword")}
+                        placeholder='repetir a sua senha' />
                     {form.formState.errors.confirmPassword && (
                         <p className="text-red-500 pl-2 text-[10px] mt-1">
                             {form.formState.errors.confirmPassword.message}
@@ -67,7 +97,7 @@ const SignUpForm = () => {
                 </div>
                 <div className="space-y-1">
                     <Button size={"lg"} type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
-                    {!isPending ? "Criar Conta" :
+                        {!isPending ? "Criar Conta" :
                             <Loader atributes={{
                                 color: "#fff"
                             }} />}
@@ -84,7 +114,7 @@ const SignUpForm = () => {
                 </button>
             </div>
             <div className="text-center mt-2">
-                <Link href={'/auth/register'} className='text-center text-xs text-slate-600 mt-2 hover:text-primary' >
+                <Link href={'/sign-in'} className='text-center text-xs text-slate-600 mt-2 hover:text-primary' >
                     Tem uma conta?
                 </Link>
             </div>
@@ -92,4 +122,4 @@ const SignUpForm = () => {
     )
 }
 
-export default  SignUpForm
+export default SignUpForm
