@@ -29,11 +29,21 @@ export function useSignIn() {
         setMessage(null);
 
         try {
-            const res = await axios.post<ApiResponse<DataSession>>("/auth/login", body).then((res)=>res.data);
+            const res = await axios.post<ApiResponse<{dataSession: DataSession}>>("/auth/login", body).then((res)=>res.data);
             console.log(res);
-            console.log(res.data.clientId);
-            setMessage({ message: "Login efetuado com sucesso", type: "success" });
-     
+            console.log(res.data.dataSession.clientId);
+            
+            if(res.data.dataSession){
+                setIsPending(true);
+
+                setMessage({ message: "Login efetuado com sucesso", type: "success" });
+
+                await signIn("credentials", {
+                    ...res.data.dataSession,
+                    callbackUrl: "/",
+                    redirect: true
+                })
+            }
         } catch (error) {
             console.log(error);
             handleErrors(error);

@@ -5,7 +5,7 @@ export async function middleware(req: any) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET }); 
   const { pathname } = req.nextUrl;
 
-  const publicRoutes = ["/sign-in", "/sign-up"];
+  const publicRoutes = ["/sign-in", "/sign-up", "/verification/account"];
 
   if (token && publicRoutes.includes(pathname)) {
     return NextResponse.redirect(new URL("/", req.url));
@@ -19,5 +19,5 @@ export async function middleware(req: any) {
 }
 
 export const config = {
-  matcher: ["/", "/app/:path*", "/auth/:path*"], 
+  matcher: ["/", "/:path*",], 
 };
