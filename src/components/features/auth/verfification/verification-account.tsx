@@ -5,7 +5,6 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/global/ui/input-otp'
 import { IMessageProps } from '@/core/message/message'
 import { useVerificationAccount } from '@/hooks/auth/verification-account.hook'
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
 import React from 'react'
 import { MdErrorOutline } from 'react-icons/md'
 import { toast } from 'sonner'

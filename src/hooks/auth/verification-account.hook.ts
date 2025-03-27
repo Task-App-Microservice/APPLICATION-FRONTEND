@@ -1,4 +1,3 @@
-import { signUpSchema } from "@/schemas/auth/sign-up.schema";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
