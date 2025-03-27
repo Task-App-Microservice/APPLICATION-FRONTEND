@@ -114,7 +114,7 @@ const SignUpForm = () => {
                 </button>
             </div>
             <div className="text-center mt-2">
-                <Link href={'/sign-in'} className='text-center text-xs text-slate-600 mt-2 hover:text-emerald-600' >
+                <Link href={'/auth/sign-in'} className='text-center text-xs text-slate-600 mt-2 hover:text-emerald-600' >
                     Tem uma conta? entrar
                 </Link>
             </div>

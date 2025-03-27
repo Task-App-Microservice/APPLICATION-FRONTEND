@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
         maxAge: TOKEN_EXPIRATION_TIME, // Definir a expiração da sessão
     },
     pages: {
-        signIn: '/sign-in',
+        signIn: '/auth/sign-in',
         error: '/auth/error'
     },
     callbacks: {
