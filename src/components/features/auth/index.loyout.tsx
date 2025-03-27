@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import image from "@/assets/image-s.jpg"
 const AuthLoyout = ({
   children,
 }: Readonly<{
@@ -8,7 +9,7 @@ const AuthLoyout = ({
   return (
     <div className="grid grid-cols-2 h-screen">
       <div className="relative">
-        <Image src={"/images/image-s.jpg"} priority fill alt='BANNER' />
+        <Image src={image} priority fill alt='BANNER' />
       </div>
       <main className="flex items-center justify-center h-screen">
         {children}
