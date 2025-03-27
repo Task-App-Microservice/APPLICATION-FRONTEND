@@ -96,7 +96,7 @@ const SignUpForm = () => {
                     )}
                 </div>
                 <div className="space-y-1">
-                    <Button size={"lg"} type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
+                    <Button size={"lg"}  disabled={isPending}  type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
                         {!isPending ? "Criar Conta" :
                             <Loader atributes={{
                                 color: "#fff"

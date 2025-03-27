@@ -6,11 +6,48 @@ import { Button } from '@/components/global/ui/button';
 import { Separator } from '@/components/global/ui/separator';
 import { Input } from '@/components/global/ui/input';
 import LogoApp from '../../layout/app/partials/sidebar/logo';
+import { useSignIn } from '@/hooks/auth/sign-in';
+import Loader from '@/components/global/custom/loader';
+import { MdErrorOutline } from 'react-icons/md';
+import { toast } from 'sonner';
+import { IMessageProps } from '@/core/message/message';
 const SignInForm = () => {
-
+    const {
+        form,
+        handleForm,
+        isPending,
+        message
+    } = useSignIn()
+        const handleMessagePopOut = ({ message, type }: IMessageProps) => {
+            if (type === "error") {
+                return toast(message, {
+                    style: {
+                        background: "#FFC9C9",
+                        color: "#E7000B"
+                    },
+                    duration: 80000,
+                    icon: <MdErrorOutline className='h-5 w-5' />
+                });
+            }
+    
+                return toast(message, {
+                    style: {
+                        background: "#B9F8CF",
+                        color: "#00A63E"
+                    },
+                    duration: 80000
+                });
+    
+        };
+    
+        React.useEffect(() => {
+            if (message) {
+                handleMessagePopOut({ message: message?.message, type: message?.type });
+            }
+        }, [message]);
     return (
         <div className='max-w-[350px] w-full '>
-            <form className='space-y-4'>
+            <form className='space-y-4' onSubmit={form.handleSubmit(handleForm)} >
                 <div className="flex items-center justify-center w-full flex-col gap-1">
                     <LogoApp />
                     <p className="text-slate-600 font-medium text-center text-sm">
@@ -18,15 +55,34 @@ const SignInForm = () => {
                     </p>
                 </div>
                 <div className="space-y-1">
-                    <Input placeholder='ebraimsambo@gmail.com' />
+                    <Input
+                        disabled={isPending}
+                        {...form.register("email")}
+                        placeholder='ebraimsambo@gmail.com' />
+                    {form.formState.errors.email && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.email.message}
+                        </p>
+                    )}
                 </div>
                 <div className="space-y-1">
-                    <Input type='password' placeholder='sua senha' />
-
+                    <Input disabled={isPending}
+                    {...form.register("password")}
+                    type='password' placeholder='sua senha' />
+                    {form.formState.errors.password && (
+                        <p className="text-red-500 pl-2 text-[10px] mt-1">
+                            {form.formState.errors.password.message}
+                        </p>
+                    )}
                 </div>
                 <div className="space-y-1">
-                    <Button size={"lg"} type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
-                        Entrar
+                    <Button size={"lg"}
+                        disabled={isPending}
+                        type='submit' className='bg-emerald-600 cursor-pointer w-full font-black py-4'>
+                        {!isPending ? "Entrar na minha conta" :
+                            <Loader atributes={{
+                                color: "#fff"
+                            }} />}
                     </Button>
 
                 </div>

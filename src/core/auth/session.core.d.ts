@@ -28,3 +28,8 @@ declare module "next-auth/jwt" {
     clientId: string;
   }
 }
+
+export interface DataSession{
+  userUniversalId: string;
+  clientId: string;
+}
