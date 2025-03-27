@@ -40,8 +40,8 @@ const SignInForm = () => {
                 </button>
             </div>
             <div className="text-center mt-2">
-                <Link href={'/sign-up'} className='text-center text-xs text-slate-600 mt-2 hover:text-primary' >
-                    Não tenho uma conta?
+                <Link href={'/sign-up'} className='text-center text-xs text-slate-600 mt-2 hover:text-emerald-600' >
+                    Não tenho uma conta? cirar
                 </Link>
             </div>
         </div>
