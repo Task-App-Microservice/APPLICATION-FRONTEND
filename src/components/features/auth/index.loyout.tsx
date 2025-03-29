@@ -16,7 +16,7 @@ const AuthLoyout = ({
                     <div className="flex items-center justify-between p-4 ">
                         <h1 className='font-bold text-white flex gap-1 items-center'>
                             <GrTasks  className='h-6 w-6 ' />
-                            <span>GUARDA</span>
+                            <span>TASKFAST</span>
                         </h1>
                         <Link href={"/"} className='text-white items-center flex justify-center gap-2 bg-slate-100/5 rounded-full p-2 px-4'>
                             <span className='text-sm font-black'>Voltar</span>

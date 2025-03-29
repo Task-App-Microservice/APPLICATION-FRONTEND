@@ -6,7 +6,7 @@ const LogoApp = () => {
         <Link href={"/"}>
             <div className="flex items-center gap-2">
                 <GrTasks className='h-6 w-6 text-[#064C61]' />
-                <span className='font-bold text-lg'>TaskFast</span>
+                <span className='font-bold text-lg'>TASKFAST</span>
             </div>
         </Link>
     )

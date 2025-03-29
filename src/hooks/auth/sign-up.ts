@@ -31,7 +31,7 @@ export function useSignUp() {
             const res = await axios.post("/auth/register", body);
             console.log(res);
             setMessage({ message: "A sua conta foi criada com sucesso, aguarde", type: "success" });
-            window.location.assign("/verification/account");
+            window.location.assign("/auth/verification/account");
         } catch (error) {
             console.log(error);
             handleErrors(error);

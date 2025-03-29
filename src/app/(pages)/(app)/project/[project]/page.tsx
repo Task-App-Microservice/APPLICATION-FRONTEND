@@ -1,15 +1,15 @@
-import TaskCard from '@/components/features/task/task-card'
+import ProjectLoyout from '@/components/features/layout/project/index.loyout'
 import React from 'react'
-
-const Page = () => {
+interface Params{
+  params:Promise<{
+      project: string
+  }>
+} 
+const Page = async({params}:Params) => {
   return (
-    <div className='pt-8'>
-      <div className="grid grid-cols-4 gap-4">
-        {Array.from({length: 10}).map((i,index)=>(
-            <TaskCard key={index}/>
-        ))}
-      </div>
-    </div>
+    <ProjectLoyout projectUuid={(await params).project}>
+      <ProjectTasks />
+    </ProjectLoyout>
   )
 }
 

@@ -47,10 +47,8 @@ const CreateProject = ({userUniversalId}:{userUniversalId: string}) => {
             }, [message]);
     return (
         <Dialog>
-            <DialogTrigger>
-                <button className='cursor-pointer'>
+            <DialogTrigger className='cursor-pointer'>
                     <FaPlusCircle className='text-emerald-600' />
-                </button>
             </DialogTrigger>
             <DialogContent>
                 <Form {...form}>

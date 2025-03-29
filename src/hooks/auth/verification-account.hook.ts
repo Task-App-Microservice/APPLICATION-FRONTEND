@@ -28,7 +28,7 @@ export function useVerificationAccount() {
             const res = await axios.post("/auth/verification/account", body);
             console.log(res);
             setMessage({ message: "A sua conta foi verificada, aguarde", type: "success" });
-            window.location.assign("/sign-in");
+            window.location.assign("/auth/sign-in");
             return res;
         } catch (error) {
             console.log(error);
