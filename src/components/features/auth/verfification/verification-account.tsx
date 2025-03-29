@@ -82,7 +82,6 @@ const VerificationAccount = () => {
                                 }} />
                                 <span className="">Aguarde...</span>
                             </>}
-
                     </Button>
                 </form>
             </Form>

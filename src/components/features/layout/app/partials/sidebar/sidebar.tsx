@@ -9,8 +9,8 @@ import SubMenuProject from './sub-menu-project'
 const Sidebar = () => {
   return (
     <aside className='w-full max-w-[240px] border-r'>
-      <div className="flex flex-col justify-between h-[99vh]">
-        <div className="p-4 space-y-6">
+      <div className="flex flex-col  h-[99vh]">
+        <div className="p-4 ">
           <LogoApp />
           <nav className='pl-2 mt-4 space-y-4'>
             <Separator />
@@ -26,20 +26,22 @@ const Sidebar = () => {
               ))}
             </ul>
             <Separator />
-            <SubMenuProject />
           </nav>
         </div>
-        <div className="p-4 space-y-4">
-          <div className="text-center space-y-2">
-            <div className="h-24 w-full bg-emerald-600 rounded-t-xl"></div>
-            <h2 className='font-semibold'>Maximize as tarfeas</h2>
-            <p className="text-xs text-slate-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
+        <div className="grid grid-cols-1 gap-2 h-full">
+          <SubMenuProject />
+          <div className="px-4 space-y-4">
+            <div className="text-center space-y-2">
+              <div className="h-24 w-full bg-emerald-600 rounded-t-xl"></div>
+              <h2 className='font-semibold'>Maximize as tarfeas</h2>
+              <p className="text-xs text-slate-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+            <Button className='w-full cursor-pointer bg-emerald-600'>
+              Upgrade
+            </Button>
           </div>
-          <Button className='w-full cursor-pointer bg-emerald-600'>
-            Upgrade
-          </Button>
         </div>
       </div>
     </aside>

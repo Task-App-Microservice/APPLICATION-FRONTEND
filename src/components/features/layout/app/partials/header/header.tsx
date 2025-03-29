@@ -6,7 +6,7 @@ import MenuUser from './menu-user'
 import { IoSettingsOutline } from "react-icons/io5";
 const Header = () => {
     return (
-        <header className='p-4 border-b absolute left-0 top-0 right-0 w-full bg-white z-[1000]'>
+        <header className='p-4 border-b absolute left-0 top-0 right-0 w-full bg-white z-[4]'>
             <div className="flex items-center justify-between">
                 <div className="border max-w-[300px] h-9 w-full rounded-md px-2 bg-slate-400/10  flex items-center gap-2">
                     <button>

@@ -4,7 +4,7 @@ import { Separator } from '@/components/global/ui/separator'
 import { Skeleton } from '@/components/global/ui/skeleton'
 import { useGetUser } from '@/hooks/user/get-user.hook'
 import { getFirstAndLastInitials } from '@/utils/string/user'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 import { FaRegUserCircle } from 'react-icons/fa'
@@ -18,7 +18,7 @@ const MenuUser = () => {
 
     return (
         <Popover>
-            <PopoverTrigger className='cursor-pointer z-[2000]'>
+            <PopoverTrigger className='cursor-pointer z-[7000]'>
                 <div className="h-10 w-10 bg-slate-400/10 flex items-center justify-center border rounded-full">
                     <span className="font-bold">
                         {getFirstAndLastInitials(data?.user.name as string)}
@@ -64,13 +64,13 @@ const MenuUser = () => {
                             </span>
                         </Link>
                         <Separator />
-                        <Link href={"/"}
-                            className='flex items-center gap-2 text-slate-600'>
+                        <button onClick={()=> signOut()}
+                            className='flex items-center gap-2 text-slate-600 cursor-pointer'>
                             <IoIosLogOut />
                             <span className="text-sm">
                                 Terminar sessão
                             </span>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </PopoverContent>

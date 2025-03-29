@@ -29,7 +29,7 @@ const TaskCard = () => {
           </div>
           <div className="grid grid-cols-6 gap-2">
             {Array.from({ length: 5 }).map((i, index) => (
-              <div className="h-2 bg-emerald-600 rounded-md" key={index}>{String(i)}</div>
+              <div className="h-2 bg-emerald-600 rounded-md" key={index}></div>
             ))}
             <div className="h-2 bg-slate-600/10 rounded-md"></div>
           </div>
