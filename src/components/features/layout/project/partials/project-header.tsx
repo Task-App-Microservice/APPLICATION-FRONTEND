@@ -1,15 +1,19 @@
+"use client"
+
+import { useGetProject } from '@/hooks/project/get-projects.hook'
 import React from 'react'
 import { CiCalendar } from 'react-icons/ci'
 import { FiPlus, FiSearch } from 'react-icons/fi'
 import { IoFilterOutline } from 'react-icons/io5'
 
-const ProjectHeader = () => {
+const ProjectHeader = ({projectUuid}:{projectUuid: string}) => {
+    const {data, isLoading} =  useGetProject(projectUuid)
     return (
         <div className='py-4'>
             <div className="flex justify-between items-center">
                 <div className="space-y-2">
-                    <h1 className='text-lg font-bold'>Tarefas Sysconp</h1>
-                    <p className="text-xs text-slate-600">Bem vindo ao projecto Ssconp</p>
+                    <h1 className='text-lg font-bold'>Workspace {data?.project.name}</h1>
+                    <p className="text-xs text-slate-600">Bem vindo ao projecto {data?.project.createdAt}</p>
                 </div>
 
                 <div className="">

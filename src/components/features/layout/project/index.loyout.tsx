@@ -8,8 +8,7 @@ interface Props{
 const ProjectLoyout = ({children,projectUuid}:Props) => {
   return (
     <div>
-      {JSON.stringify(projectUuid)}
-        <ProjectHeader />
+        <ProjectHeader projectUuid={projectUuid} />
         <Separator />
         <div className="">
             {children}

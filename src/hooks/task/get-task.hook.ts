@@ -1,14 +1,15 @@
 import { createAxiosInstance } from "@/config/axios/axios.instance";
 import { ApiResponse } from "@/core/api/response";
-import { User } from "@/core/user/user.core";
+import { ResponsePagination } from "@/core/pagination/pagination.core";
+import { Task } from "@/core/task/task.core";
 import { useQuery } from "@tanstack/react-query";
 
 const axios = createAxiosInstance();
 
-export function useGetUser(cuid: string){
+export function useProjectTasks(projectCuid: string){
     return  useQuery({
-        queryKey: ['user', cuid],
-        queryFn: () => axios.get<ApiResponse<{user: User}>>(`/users/${cuid}`).then((res)=>res.data.data),
-          enabled: !!cuid
+        queryKey: ['project_tasks', projectCuid],
+        queryFn: () => axios.get<ApiResponse<ResponsePagination<Task[]>>>(`/task/all/${projectCuid}`).then((res)=>res.data.data),
+          enabled: !!projectCuid
       })
 }
