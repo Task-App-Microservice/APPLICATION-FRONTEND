@@ -11,6 +11,7 @@ import Loader from '@/components/global/custom/loader';
 import { MdErrorOutline } from 'react-icons/md';
 import { toast } from 'sonner';
 import { IMessageProps } from '@/core/message/message';
+
 const SignInForm = () => {
     const {
         form,
@@ -18,33 +19,34 @@ const SignInForm = () => {
         isPending,
         message
     } = useSignIn()
-        const handleMessagePopOut = ({ message, type }: IMessageProps) => {
-            if (type === "error") {
-                return toast(message, {
-                    style: {
-                        background: "#FFC9C9",
-                        color: "#E7000B"
-                    },
-                    duration: 80000,
-                    icon: <MdErrorOutline className='h-5 w-5' />
-                });
-            }
-    
-                return toast(message, {
-                    style: {
-                        background: "#B9F8CF",
-                        color: "#00A63E"
-                    },
-                    duration: 80000
-                });
-    
-        };
-    
-        React.useEffect(() => {
-            if (message) {
-                handleMessagePopOut({ message: message?.message, type: message?.type });
-            }
-        }, [message]);
+
+    const handleMessagePopOut = ({ message, type }: IMessageProps) => {
+        if (type === "error") {
+            return toast(message, {
+                style: {
+                    background: "#FFC9C9",
+                    color: "#E7000B"
+                },
+                duration: 80000,
+                icon: <MdErrorOutline className='h-5 w-5' />
+            });
+        }
+
+        return toast(message, {
+            style: {
+                background: "#B9F8CF",
+                color: "#00A63E"
+            },
+            duration: 80000
+        });
+
+    };
+
+    React.useEffect(() => {
+        if (message) {
+            handleMessagePopOut({ message: message?.message, type: message?.type });
+        }
+    }, [message]);
     return (
         <div className='max-w-[350px] w-full '>
             <form className='space-y-4' onSubmit={form.handleSubmit(handleForm)} >
@@ -67,8 +69,8 @@ const SignInForm = () => {
                 </div>
                 <div className="space-y-1">
                     <Input disabled={isPending}
-                    {...form.register("password")}
-                    type='password' placeholder='sua senha' />
+                        {...form.register("password")}
+                        type='password' placeholder='sua senha' />
                     {form.formState.errors.password && (
                         <p className="text-red-500 pl-2 text-[10px] mt-1">
                             {form.formState.errors.password.message}

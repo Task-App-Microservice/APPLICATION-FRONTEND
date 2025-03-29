@@ -30,7 +30,6 @@ export function useSignIn() {
 
         try {
             const res = await axios.post<ApiResponse<{dataSession: DataSession}>>("/auth/login", body).then((res)=>res.data);
-            console.log(res);
             console.log(res.data.dataSession.clientId);
             
             if(res.data.dataSession){
@@ -61,10 +60,12 @@ export function useSignIn() {
             } else if (error.response?.status === 401) {
                 setMessage({ message: error.response.data?.detail || "Email ou senha estão incorrectos!", type: "error" });
             } else if (error.response?.status === 404) {
-                setMessage({ message: "Usuário não encontrado. Verifique as informações.", type: "error" });
+                setMessage({ message: error.response.data?.detail || "Usuário não encontrado. Verifique as informações.", type: "error" });
             } else if (error.response?.status === 500) {
                 setMessage({ message: "Erro no servidor. Tente novamente mais tarde.", type: "error" });
-            } else {
+            } else if (error.response?.status === 502) {
+                setMessage({ message: "Servidor inisponivel. Tente novamente mais tarde.", type: "error" });
+            }  else {
                 setMessage({ message: "Erro inesperado. Tente novamente.", type: "error" });
             }
         } else {

@@ -48,7 +48,7 @@ const CreateProject = ({userUniversalId}:{userUniversalId: string}) => {
     return (
         <Dialog>
             <DialogTrigger className='cursor-pointer'>
-                    <FaPlusCircle className='text-emerald-600' />
+                    <FaPlusCircle className='text-[#064C61] hover:text-[#064c61d2] h-5 w-5' />
             </DialogTrigger>
             <DialogContent>
                 <Form {...form}>
@@ -58,17 +58,16 @@ const CreateProject = ({userUniversalId}:{userUniversalId: string}) => {
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Nome do workspace</FormLabel>
+                                    <FormLabel className='font-semibold'>Nome do workspace</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
+                                        <Input placeholder="ex: Minha empresa" {...field} />
                                     </FormControl>
-                                    <FormDescription>This is your public display name.</FormDescription>
-                                    <FormMessage />
+                                    <FormMessage className='text-xs' />
                                 </FormItem>
                             )}
                         />
 
-                        <Button className='cursor-pointer bg-emerald-600' disabled={isPending} type="submit">
+                        <Button className='cursor-pointer bg-[#064C61] hover:bg-[#064c61d2]' disabled={isPending} type="submit">
                             {!isPending ? "Criar Workspace" :
                                 <>
                                     <Loader atributes={{

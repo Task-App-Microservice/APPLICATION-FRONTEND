@@ -23,7 +23,13 @@ const errorMessages: ErrorMessages = {
     default: "Erro inesperado. Tente novamente",
 };
 
-export function useTaskProject(userUniversalId: string) {
+interface Props{
+    userId: number;
+    projectId: number;
+    userUniversalId: string
+}
+
+export function useCreateTask(data: Props) {
     const queryClient = useQueryClient();
     const [message, setMessage] = React.useState<IMessageProps | null>(null);
     const [isPending, setIsPending] = React.useState(false);
@@ -41,12 +47,12 @@ export function useTaskProject(userUniversalId: string) {
         try {
             const response = await axios.post("/task/project", {
                 ...body,
-                referenceExternalId: userUniversalId,
+                data,
             });
 
             form.reset();
             queryClient.invalidateQueries({
-                queryKey: ["projects", userUniversalId],
+                queryKey: ["projects", data.userUniversalId],
             });
             setMessage({ message: "Projeto criado com sucesso", type: "success" });
 
@@ -72,13 +78,13 @@ export function useTaskProject(userUniversalId: string) {
 
         const status = error.response?.status;
         const serverMessage = error.response?.data?.detail || errorMessages[status || "default"];
-
-        if (status === 409) {
+       if (status === 409) {
             form.setError("title", {
                 type: "custom",
                 message: "Já existe um projeto com este nome",
             });
         }
+ 
 
         setMessage({ message: serverMessage, type: "error" });
     }

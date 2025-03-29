@@ -23,13 +23,15 @@ const AuthLoyout = ({
               <FaArrowRight />
             </Link>
           </div>
-          <h1 className='max-w-[450px] w-full mx-auto text-4xl text-wrap font-black text-white text-center p-4'>
+          <h1 className='max-w-[450px] w-full mx-auto text-4xl text-wrap font-black text-white text-center p-4 drop-shadow-md'>
             O melhor aplicativo para organizar tarefas
           </h1>
-          <div className="absolute left-0 right-0 bottom-[30%] flex items-center w-full">
-            <h2 className="text-white font-black text-6xl text-center max-w-[490px] ">
-                A velocidade e Eficacia em só lugar 
+          <div className="absolute left-0 right-0 bottom-[26%] flex items-center w-full">
+            <div className="flex items-center justify-center w-full">
+               <h2 className="text-white font-black text-6xl text-center max-w-[490px] drop-shadow-md ">
+               A velocidade e Eficácia em só lugar....
             </h2>
+            </div>
           </div>
         </div>
       </div>

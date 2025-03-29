@@ -17,7 +17,7 @@ const Sidebar = () => {
             <ul className='flex flex-col gap-4'>
               {linkData.map((link) => (
                 <Link href={link.path} key={link.label}
-                  className='flex items-center gap-1 text-slate-600 hover:text-emerald-600 '>
+                  className='flex items-center gap-1 text-slate-600 hover:text-[#064C61] '>
                   <link.icon className='h-6 w-6' />
                   <span className="text-sm font-semibold">
                     {link.label}
@@ -32,13 +32,13 @@ const Sidebar = () => {
           <SubMenuProject />
           <div className="px-4 space-y-4">
             <div className="text-center space-y-2">
-              <div className="h-24 w-full bg-emerald-600 rounded-t-xl"></div>
+              <div className="h-24 w-full bg-[#064C61] rounded-t-xl"></div>
               <h2 className='font-semibold'>Maximize as tarfeas</h2>
               <p className="text-xs text-slate-600">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
             </div>
-            <Button className='w-full cursor-pointer bg-emerald-600'>
+            <Button className='w-full cursor-pointer bg-[#064C61]'>
               Upgrade
             </Button>
           </div>
