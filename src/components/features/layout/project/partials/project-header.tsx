@@ -50,7 +50,8 @@ const ProjectHeader = ({ projectUuid }: { projectUuid: string }) => {
                         <CreateTask data={{
                             projectId: data?.project.id as number,
                             userId: Number(session?.clientId),
-                            userUniversalId: session?.userUniversalId as string
+                            userUniversalId: session?.userUniversalId as string,
+                            projectCuid: data?.project.uuid as string
                         }} />
                     </div>
                 </div>

@@ -11,26 +11,25 @@ import { FaRegUserCircle } from 'react-icons/fa'
 import { HiMiniLanguage } from 'react-icons/hi2'
 import { IoIosLogOut } from 'react-icons/io'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
+import Avatar, { genConfig } from 'react-nice-avatar'
+
+
 const MenuUser = () => {
     const { data: session, status } = useSession();
     const { data, isLoading } = useGetUser(session?.userUniversalId as string);
-    if (status == "loading" || isLoading) return <Skeleton className='bg-slate-500 w-10 h-10 rounded-full' />
+    if (status == "loading" || isLoading) return <Skeleton className='bg-slate-800/20 w-10 h-10 rounded-full' />
+
+    const config = genConfig(data?.user.email)
 
     return (
         <Popover>
             <PopoverTrigger className='cursor-pointer z-[7000]'>
-                <div className="h-10 w-10 bg-slate-400/10 flex items-center justify-center border rounded-full">
-                    <span className="font-bold">
-                        {getFirstAndLastInitials(data?.user.name as string)}
-                    </span>
-                </div>
+            <Avatar  style={{ width: 45, height: 45 }} {...config} />
             </PopoverTrigger>
             <PopoverContent className='mr-5 '>
                 <div className="space-y-2">
                     <div className="flex items-center justify-center flex-col gap-1">
-                        <div className="h-14 w-14 bg-slate-400/10 flex items-center justify-center border rounded-full">
-                            <span className="font-bold">ES</span>
-                        </div>
+                    <Avatar  style={{ width: 75, height: 75 }} {...config} />
                         <h2 className="text-xs font-semibold">
                             {data?.user.name}
                         </h2>

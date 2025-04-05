@@ -1,8 +1,7 @@
+import Dashboard from "@/components/features/home/dashboard";
 
 export default function Home() {
   return (
-    <div >
-        <h2>Hello next</h2>
-    </div>
+    <Dashboard />
   );
 }

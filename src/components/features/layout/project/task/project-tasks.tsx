@@ -29,8 +29,8 @@ export const ProjectTasks = ({ projectUuid }: Props) => {
       </div>}
       {tasks?.results && tasks?.results.length != 0
         && (<div className="grid grid-cols-4 gap-4">
-          {tasks?.results.map((i, index) => (
-            <TaskCard key={index} />
+          {tasks?.results.map((task, index) => (
+            <TaskCard task={task} key={index} />
           ))}
         </div>)}
     </div>

@@ -30,7 +30,7 @@ const SubMenuProject = () => {
                 </div>}
 
 
-               {data?.results && (<ScrollArea className='w-full h-[130px]'>
+               {data?.results && (<ScrollArea className='w-full h-[330px]'>
                     <ul className='flex flex-col gap-2 ml-1 pt-8 px-4'>
                         {data?.results && data?.results.map((project, index) => (
                             <Link href={`/project/${project.uuid}`} key={index}

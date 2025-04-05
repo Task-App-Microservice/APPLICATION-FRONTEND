@@ -26,7 +26,8 @@ const errorMessages: ErrorMessages = {
 interface Props{
     userId: number;
     projectId: number;
-    userUniversalId: string
+    userUniversalId: string;
+    projectCuid: string
 }
 
 export function useCreateTask(data: Props) {
@@ -45,14 +46,15 @@ export function useCreateTask(data: Props) {
         setMessage(null);
 
         try {
-            const response = await axios.post("/task/project", {
+            const response = await axios.post(`/task/create/${data.userUniversalId}`, {
                 ...body,
-                data,
+                userId: Number(data.userId),
+                projectId: Number(data.projectId)
             });
 
             form.reset();
             queryClient.invalidateQueries({
-                queryKey: ["projects", data.userUniversalId],
+                queryKey: ["project_tasks", data.projectCuid],
             });
             setMessage({ message: "Projeto criado com sucesso", type: "success" });
 

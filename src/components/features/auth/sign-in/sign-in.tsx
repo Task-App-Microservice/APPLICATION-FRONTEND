@@ -53,7 +53,7 @@ const SignInForm = () => {
                 <div className="flex items-center justify-center w-full flex-col gap-1">
                     <LogoApp />
                     <p className="text-slate-600 font-medium text-center text-sm">
-                        Faca login de forma rapida e segura.
+                        Faça, login de forma rápida e segura.
                     </p>
                 </div>
                 <div className="space-y-1">
