@@ -1,4 +1,4 @@
-import { Card, CardDescription, CardTitle } from '@/components/global/ui/card'
+import { Card, CardTitle } from '@/components/global/ui/card'
 import { Progress } from '@/components/global/ui/progress'
 import { Clock } from 'lucide-react'
 import React from 'react'

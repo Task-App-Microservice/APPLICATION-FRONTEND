@@ -3,7 +3,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/global/ui/
 import { Separator } from '@/components/global/ui/separator'
 import { Skeleton } from '@/components/global/ui/skeleton'
 import { useGetUser } from '@/hooks/user/get-user.hook'
-import { getFirstAndLastInitials } from '@/utils/string/user'
 import { signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'

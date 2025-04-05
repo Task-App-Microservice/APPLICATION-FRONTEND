@@ -7,7 +7,7 @@ import { useGetProject } from '@/hooks/project/get-projects.hook'
 import { useSession } from 'next-auth/react'
 import React from 'react'
 import { CiCalendar } from 'react-icons/ci'
-import { FiPlus, FiSearch } from 'react-icons/fi'
+import { FiSearch } from 'react-icons/fi'
 import { IoFilterOutline } from 'react-icons/io5'
 
 const ProjectHeader = ({ projectUuid }: { projectUuid: string }) => {

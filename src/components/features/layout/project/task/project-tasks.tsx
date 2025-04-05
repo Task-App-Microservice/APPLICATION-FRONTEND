@@ -9,13 +9,14 @@ interface Props {
 }
 export const ProjectTasks = ({ projectUuid }: Props) => {
   const { data } = useProjectTasks(projectUuid);
+  console.log(data)
   const { data: tasks, isLoading } = useProjectTasks(projectUuid);
   return (
     <div className='pt-8'>
       {isLoading && (
         <div className="grid grid-cols-4 gap-4">
           {[...Array(16)].map((_, index) => (
-            <div className="h-[20vh] rounded-md">
+            <div className="h-[20vh] rounded-md" key={index} >
               <Skeleton key={index} className='h-full bg-slate-800/10 w-full' />
             </div>
           ))}

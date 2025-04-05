@@ -3,10 +3,8 @@ import Loader from '@/components/global/custom/loader'
 import { Button } from '@/components/global/ui/button'
 import { Calendar } from '@/components/global/ui/calendar'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/global/ui/dialog'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/global/ui/form'
-import { Input } from '@/components/global/ui/input'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/global/ui/form'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/global/ui/popover'
-import { Textarea } from '@/components/global/ui/textarea'
 import { IMessageProps } from '@/core/message/message'
 import { format } from "date-fns"
 import { useCreateTask } from '@/hooks/task/create/create-task'
@@ -27,7 +25,6 @@ interface Props {
     }
 }
 const CreateTask = ({ data }: Props) => {
-    const [date, setDate] = React.useState<Date>()
     const {
         form,
         handleForm,

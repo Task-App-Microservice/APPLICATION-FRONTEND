@@ -5,7 +5,6 @@ import { ptBR } from 'date-fns/locale'
 import { Clock } from 'lucide-react'
 import React from 'react'
 import { ImAttachment } from 'react-icons/im'
-import { IoIosCheckboxOutline, IoIosClock } from 'react-icons/io'
 import { TbMessage, TbPointFilled } from 'react-icons/tb'
 
 const TaskCard = ({ task }: { task: Task }) => {

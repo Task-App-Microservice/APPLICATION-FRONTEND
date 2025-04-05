@@ -9,7 +9,7 @@ import React from 'react'
 import { TbPointFilled } from 'react-icons/tb'
 
 const SubMenuProject = () => {
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const { data, isLoading } = useGetProjects(session?.userUniversalId as string);
     return (
         <nav className='relative space-y-2'>
